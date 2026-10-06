@@ -152,7 +152,7 @@ static float UFSafeControl(id value, float minimum, float maximum) {
         [root.bottomAnchor constraintEqualToAnchor:content.bottomAnchor constant:-24]
     ]];
     NSTextField *title = UFLabel(@"UltraFineTune", 25, NSFontWeightSemibold);
-    NSTextField *subtitle = UFLabel(@"1.0.0 · RC 2  •  Make everyday listening your own", 12, NSFontWeightRegular);
+    NSTextField *subtitle = UFLabel(@"1.0.0  •  macOS system audio equalizer", 12, NSFontWeightRegular);
     subtitle.textColor = NSColor.secondaryLabelColor;
     [root addArrangedSubview:UFStack(@[title, subtitle], NSUserInterfaceLayoutOrientationVertical, 5)];
 
@@ -600,7 +600,7 @@ int main(int argc, const char *argv[]) {
             BOOL testing = strcmp(argv[1], "--self-test") == 0;
             NSDictionary *result = testing ? [UFAudioEngine offStateSelfTest] : [UFAudioEngine hardwareSnapshot];
             NSMutableDictionary *report = [result mutableCopy];
-            report[@"version"] = @"1.0.0"; report[@"build"] = @"2"; report[@"releaseChannel"] = @"RC 2";
+            report[@"version"] = @"1.0.0"; report[@"build"] = @"3"; report[@"releaseChannel"] = @"stable";
             NSData *json = [NSJSONSerialization dataWithJSONObject:report options:NSJSONWritingPrettyPrinted | NSJSONWritingSortedKeys error:nil];
             printf("%s\n", [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding].UTF8String);
             return testing && ![result[@"passed"] boolValue] ? 1 : 0;

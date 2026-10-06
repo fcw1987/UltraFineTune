@@ -205,7 +205,7 @@ if (( SHOULD_INSTALL )); then
     fi
 elif (( RUN_LOCAL )); then
     /usr/bin/open "$DIST_APP"
-    printf 'Opened the local RC; tuning starts off. No installation was performed.\n'
+    printf 'Opened the local app; tuning starts off. No installation was performed.\n'
 else
     printf 'To open this build after quitting any older copy: open "%s"\n' "$DIST_APP"
 fi
