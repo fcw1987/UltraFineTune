@@ -1,0 +1,8 @@
+.DS_Store
+.build.*
+.UltraFineTune-stage.*
+dist/
+*.dSYM/
+
+__pycache__/
+*.pyc
