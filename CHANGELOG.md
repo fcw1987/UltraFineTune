@@ -1,11 +1,13 @@
 # Release notes
 
-## 1.0.1 — build 4 (candidate; not published)
+## 1.0.1 — build 4
 
 - Explicit Developer ID signing with hardened runtime and a secure timestamp using an existing authorized identity.
 - Shared Xcode Release archive scheme for the existing native app and Organizer distribution workflow.
 - Version metadata updated consistently; bundle identifier, preference keys, DSP, and controls remain unchanged.
-- Notarization, ticket stapling, Gatekeeper acceptance, and public release remain pending.
+- Apple notarized app with a stapled ticket; strict signature verification, stapler validation, Gatekeeper acceptance, and signed off-state self-test passed on the exact release ZIP.
+- Versioned arm64 ZIP, installation guide, MIT license, and SHA-256 checksum; original 1.0.0 release and assets preserved.
+- Live capture compatibility under hardened runtime, permission acceptance, playback quality, latency, and recovery remain pending.
 
 ## 1.0.0 — build 3
 

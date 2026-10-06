@@ -1,6 +1,8 @@
 # Release signing preparation
 
-The public 1.0.0 release is ad hoc signed and not notarized. These build options prepare a future release; they do not change that status. The prepared candidate is 1.0.1, build 4, with consistent `Info.plist`, visible version, CLI report, and release notes. A candidate must not be described as released or notarized until its checks pass.
+The 1.0.1 release (build 4) is Developer ID signed and Apple notarized, with hardened runtime, a secure timestamp, and a validated stapled ticket. The exact release ZIP passes strict signature verification, Gatekeeper assessment as Notarized Developer ID, and the signed off-state self-test. See the [validation summary](../VALIDATION.md) for its checksum and boundaries. The original 1.0.0 release remains ad hoc signed and not notarized.
+
+The following operator checklist reproduces the signing and distribution process; signing or archive creation alone does not establish notarization.
 
 ## Local compatibility check
 
@@ -45,7 +47,7 @@ Open the genuine archive in Xcode Organizer. With an existing signed-in Apple De
 
 ## Notarize and verify before publication
 
-These commands are a future operator checklist, not an automated release. They require a separately authorized submission and an existing notarytool Keychain profile. `EXISTING_NOTARY_PROFILE` is a placeholder, not a credential to create here.
+These commands are an operator checklist, not an automated release. They require a separately authorized submission and an existing notarytool Keychain profile. `EXISTING_NOTARY_PROFILE` is a placeholder, not a credential to create here.
 
 ```sh
 ditto -c -k --keepParent /tmp/UltraFineTune-release-candidate/UltraFineTune.app /tmp/UltraFineTune-notary-submission.zip
