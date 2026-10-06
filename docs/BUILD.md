@@ -1,16 +1,10 @@
 # Build and installation
 
-## Download 1.0.0
+## Download 1.0.1
 
-The [1.0.0 release](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0) provides a runnable arm64 app ZIP and SHA-256 checksum. Extract the ZIP, read `INSTALL.md`, quit an older copy, and open the app. Moving it to your user’s Applications folder is optional. The download needs macOS 14.2+ on Apple silicon; no developer tools are required to run it.
+The [1.0.1 release](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.1) provides a runnable arm64 app ZIP and SHA-256 checksum. Extract the ZIP, read `INSTALL.md`, quit an older copy, and open the app. Moving it to your user’s Applications folder is optional. The download needs macOS 14.2+ on Apple silicon; no developer tools are required to run it.
 
-The app is locally ad hoc signed, not Developer ID signed or notarized. macOS may block the first launch of a downloaded copy, and right-click → Open alone may not be sufficient. If you trust that exact download:
-
-1. Try opening `UltraFineTune.app` once.
-2. Open **System Settings → Privacy & Security** and scroll down to **Security**.
-3. Choose the app-specific **Open Anyway** control (the label may appear as **Allow**), then confirm **Open** in the next prompt.
-
-See [Apple’s app-specific instructions](https://support.apple.com/en-us/102445). This launch approval is separate from system audio capture permission. Source builds are an alternative. No global security disablement is needed.
+The downloadable 1.0.1 app is Developer ID signed and Apple notarized, with hardened runtime, a secure timestamp, and a stapled ticket. Open the app normally and confirm macOS’s first-open prompt. This is separate from system audio capture permission, which the app requests when you start tuning. Default source builds remain ad hoc signed.
 
 ## Source build requirements
 
@@ -42,7 +36,9 @@ The script builds for the current Mac’s architecture. The recorded native RC e
 
 Quit a running copy before replacing it. The installer checks the existing bundle identifier, verifies a staged replacement, and uses an atomic filesystem replacement for a recognized app. A conflicting app at the same destination is left unchanged. Installation does not need administrator access.
 
-Builds receive an ad hoc local signature and strict signature verification. This is not Developer ID signing or notarization. macOS can ask for capture permission again after rebuilding; keeping a stable installed path helps avoid unnecessary identity changes but does not guarantee permission persistence. Do not treat successful signature verification as proof of a trusted publisher.
+Default builds receive an ad hoc local signature and strict signature verification. This is not Developer ID signing or notarization. `--hardened-runtime` adds hardened runtime for local compatibility testing. `--release-sign-identity` uses an existing Developer ID Application identity, enables hardened runtime, and requests a secure timestamp. Signing does not notarize or publish the app; see the [release signing checklist](RELEASE_SIGNING.md).
+
+macOS can ask for capture permission again after rebuilding; keeping a stable installed path helps avoid unnecessary identity changes but does not guarantee permission persistence. Do not treat successful signature verification as proof of a trusted publisher.
 
 ## Remove
 

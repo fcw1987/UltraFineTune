@@ -1,5 +1,14 @@
 # Release notes
 
+## 1.0.1 — build 4
+
+- Explicit Developer ID signing with hardened runtime and a secure timestamp using an existing authorized identity.
+- Shared Xcode Release archive scheme for the existing native app and Organizer distribution workflow.
+- Version metadata updated consistently; bundle identifier, preference keys, DSP, and controls remain unchanged.
+- Apple notarized app with a stapled ticket; strict signature verification, stapler validation, Gatekeeper acceptance, and signed off-state self-test passed on the exact release ZIP.
+- Versioned arm64 ZIP, installation guide, MIT license, and SHA-256 checksum; original 1.0.0 release and assets preserved.
+- Live capture compatibility under hardened runtime, permission acceptance, playback quality, latency, and recovery remain pending.
+
 ## 1.0.0 — build 3
 
 - Stable release with the existing system audio EQ, eight presets, saved preset, comparison, and output trim.

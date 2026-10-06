@@ -2,7 +2,7 @@
 
 A free, open-source macOS system audio equalizer with listening presets and bass, mids, treble, and output trim controls. Use it with a supported stereo physical output, including LG UltraFine speakers, selected as your Mac’s default output.
 
-[Download 1.0.0](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0) · [Website](https://fcw1987.github.io/UltraFineTune/) · [Get started](docs/BUILD.md) · [Support](https://github.com/fcw1987/UltraFineTune/issues) · [Privacy](docs/PRIVACY.md) · [MIT license](LICENSE)
+[Download 1.0.1](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.1) · [Website](https://fcw1987.github.io/UltraFineTune/) · [Get started](docs/BUILD.md) · [Support](https://github.com/fcw1987/UltraFineTune/issues) · [Privacy](docs/PRIVACY.md) · [MIT license](LICENSE)
 
 ![UltraFineTune native controls, with tuning off](docs/assets/app-window.png)
 
@@ -10,9 +10,9 @@ Adjust bass, mids, treble, and output trim without a driver or third-party runti
 
 ## Download and try it
 
-Download the [1.0.0 app ZIP for Apple silicon (arm64)](https://github.com/fcw1987/UltraFineTune/releases/download/v1.0.0/UltraFineTune-1.0.0-macos-arm64.zip) from [GitHub Releases](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0). Requires **macOS 14.2+**. The ZIP includes the app, MIT license, and installation guide; a SHA-256 checksum is available with the release.
+Download the [1.0.1 app ZIP for Apple silicon (arm64)](https://github.com/fcw1987/UltraFineTune/releases/download/v1.0.1/UltraFineTune-1.0.1-macos-arm64.zip) from [GitHub Releases](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.1). Requires **macOS 14.2+**. The ZIP includes the app, MIT license, and installation guide; a SHA-256 checksum is available with the release.
 
-Extract the ZIP, quit any older copy, and open `UltraFineTune.app`. You can move it to your user’s Applications folder. This release is **ad hoc signed, not Developer ID signed or notarized**. If macOS blocks it and you trust this exact download, open **System Settings → Privacy & Security**, scroll down to **Security**, and choose the app-specific **Open Anyway** control (the label may appear as **Allow**). Confirm **Open** in the next prompt. Right-click → Open alone may not be sufficient. See [Apple’s app-specific opening guidance](https://support.apple.com/en-us/102445). Building from source is also available.
+Extract the ZIP, quit any older copy, and open `UltraFineTune.app`. You can move it to your user’s Applications folder. This release is **Developer ID signed and Apple notarized**, with hardened runtime, a secure timestamp, and a stapled notarization ticket. Open the downloaded app normally and confirm macOS’s first-open prompt. System audio capture permission is a separate approval when you start tuning. Building from source is also available.
 
 ## Build from source
 
@@ -49,9 +49,9 @@ Presets are subjective starting points, not measured calibration, hardware corre
 
 ## Status and boundaries
 
-Stable version **1.0.0, build 3**. Native arm64 compilation, strict ad hoc signature verification, DSP/ring/preset fixtures, and isolated off-state menu/window checks have passed locally. GitHub Actions builds and runs focused fixtures on macOS. These checks do not establish live listening quality, device latency, permission acceptance, sustained playback, or recovery; those remain in the [Mac acceptance checklist](MAC_TEST_CHECKLIST.md).
+Stable version **1.0.1, build 4**. The downloadable app has verified Developer ID signing, Apple notarization, ticket stapling, and Gatekeeper acceptance. Signed off-state self-test passed; prior DSP/ring/preset fixtures and isolated menu/window checks are recorded in the validation summary. GitHub Actions builds and runs focused fixtures on macOS. These checks do not establish live listening quality, device latency, permission acceptance, sustained playback, or recovery; those remain in the [Mac acceptance checklist](MAC_TEST_CHECKLIST.md).
 
-Builds are locally ad hoc signed, **not Developer ID signed or notarized**. The downloadable 1.0.0 release is arm64; no Intel or universal binary is supplied. Source builds target the current Mac architecture; local native evidence is arm64. Stereo capture and output require matching nominal sample rates. Protected content or directly routed audio may not be captured. See [known limits](docs/KNOWN_LIMITS.md).
+Default source builds are locally ad hoc signed. The downloadable 1.0.1 release is Developer ID signed, notarized, and arm64; no Intel or universal binary is supplied. Source builds target the current Mac architecture; local native evidence is arm64. Stereo capture and output require matching nominal sample rates. Protected content or directly routed audio may not be captured. See [known limits](docs/KNOWN_LIMITS.md).
 
 ## Local by design
 
