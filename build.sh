@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-APP_NAME="UltraFine Tune"
+APP_NAME="UltraFineTune"
 EXECUTABLE_NAME="UltraFineTune"
 BUNDLE_IDENTIFIER="local.ultrafinetune.app"
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
@@ -16,7 +16,7 @@ usage() {
     cat <<'USAGE'
 Usage: bash build.sh [--install] [--run] [--run-local] [--output-dir path]
 
-No options    Build and sign dist/UltraFine Tune.app.
+No options    Build and sign dist/UltraFineTune.app.
 --install     Also install into your Applications folder.
 --run         Also install and open the app.
 --run-local   Open the workspace app without installing.
@@ -62,13 +62,13 @@ done
 
 PLATFORM="$(uname -s)"
 [[ "$PLATFORM" == "Darwin" ]] ||
-    fail "UltraFine Tune must be built on macOS 14.2 or later. This machine is running $PLATFORM."
+    fail "UltraFineTune must be built on macOS 14.2 or later. This machine is running $PLATFORM."
 
 MACOS_VERSION="$(/usr/bin/sw_vers -productVersion)"
 IFS=. read -r MACOS_MAJOR MACOS_MINOR MACOS_PATCH <<< "$MACOS_VERSION"
 MACOS_MINOR="${MACOS_MINOR:-0}"
 if (( MACOS_MAJOR < 14 || (MACOS_MAJOR == 14 && MACOS_MINOR < 2) )); then
-    fail "UltraFine Tune requires macOS 14.2 or later. This Mac is running $MACOS_VERSION."
+    fail "UltraFineTune requires macOS 14.2 or later. This Mac is running $MACOS_VERSION."
 fi
 
 if ! /usr/bin/xcode-select -p >/dev/null 2>&1; then
@@ -164,7 +164,7 @@ check_existing_app() {
         [[ "$existing_identifier" == "$BUNDLE_IDENTIFIER" ]] ||
             fail "The destination belongs to another app and was left unchanged: $destination"
         if /usr/bin/pgrep -u "$(/usr/bin/id -u)" -x "$EXECUTABLE_NAME" >/dev/null 2>&1; then
-            fail "Quit UltraFine Tune from its menu bar menu, then run this script again. The running app was left unchanged."
+            fail "Quit UltraFineTune from its menu bar menu, then run this script again. The running app was left unchanged."
         fi
     fi
 }
@@ -201,7 +201,7 @@ if (( SHOULD_INSTALL )); then
     printf 'Installed: %s\n' "$INSTALLED_APP"
     if (( SHOULD_RUN )); then
         /usr/bin/open "$INSTALLED_APP"
-        printf 'Opened UltraFine Tune. Look for its icon in the menu bar.\n'
+        printf 'Opened UltraFineTune. Look for its icon in the menu bar.\n'
     fi
 elif (( RUN_LOCAL )); then
     /usr/bin/open "$DIST_APP"

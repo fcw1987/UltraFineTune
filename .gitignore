@@ -6,3 +6,7 @@ dist/
 
 __pycache__/
 *.pyc
+
+Tests/results/
+Validation/
+REVIEW_READY

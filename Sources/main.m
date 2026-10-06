@@ -89,16 +89,16 @@ static float UFSafeControl(id value, float minimum, float maximum) {
         [strongSelf updateStatus];
     };
     self.statusItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
-    NSImage *icon = [NSImage imageWithSystemSymbolName:@"slider.horizontal.3" accessibilityDescription:@"UltraFine Tune"];
+    NSImage *icon = [NSImage imageWithSystemSymbolName:@"slider.horizontal.3" accessibilityDescription:@"UltraFineTune"];
     icon.template = YES;
     self.statusItem.button.image = icon;
     if (!icon) self.statusItem.button.title = @"EQ";
-    self.statusItem.button.toolTip = @"UltraFine Tune";
+    self.statusItem.button.toolTip = @"UltraFineTune";
     [self buildStatusMenu];
     NSMenu *mainMenu = [NSMenu new];
     NSMenuItem *appMenuItem = [NSMenuItem new];
     NSMenu *appMenu = [NSMenu new];
-    NSMenuItem *quitItem = [[NSMenuItem alloc] initWithTitle:@"Quit UltraFine Tune" action:@selector(quit:) keyEquivalent:@"q"];
+    NSMenuItem *quitItem = [[NSMenuItem alloc] initWithTitle:@"Quit UltraFineTune" action:@selector(quit:) keyEquivalent:@"q"];
     quitItem.target = self;
     NSMenuItem *openItem = [[NSMenuItem alloc] initWithTitle:@"Open Window" action:@selector(showWindow:) keyEquivalent:@"o"];
     openItem.target = self;
@@ -126,7 +126,7 @@ static float UFSafeControl(id value, float minimum, float maximum) {
     self.window = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 540, 840)
         styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable
         backing:NSBackingStoreBuffered defer:NO];
-    self.window.title = @"UltraFine Tune";
+    self.window.title = @"UltraFineTune";
     self.window.delegate = self;
     self.window.releasedWhenClosed = NO;
     [self.window center];
@@ -151,7 +151,7 @@ static float UFSafeControl(id value, float minimum, float maximum) {
         [root.topAnchor constraintEqualToAnchor:content.topAnchor constant:22],
         [root.bottomAnchor constraintEqualToAnchor:content.bottomAnchor constant:-24]
     ]];
-    NSTextField *title = UFLabel(@"UltraFine Tune", 25, NSFontWeightSemibold);
+    NSTextField *title = UFLabel(@"UltraFineTune", 25, NSFontWeightSemibold);
     NSTextField *subtitle = UFLabel(@"1.0.0 · RC 2  •  Make everyday listening your own", 12, NSFontWeightRegular);
     subtitle.textColor = NSColor.secondaryLabelColor;
     [root addArrangedSubview:UFStack(@[title, subtitle], NSUserInterfaceLayoutOrientationVertical, 5)];
@@ -460,7 +460,7 @@ static float UFSafeControl(id value, float minimum, float maximum) {
     self.menuToggle.enabled = self.startButton.enabled;
     self.menuBypass.state = self.bypassButton.state;
     for (NSMenuItem *item in [self.statusMenu itemWithTitle:@"Listening presets"].submenu.itemArray) item.state = [item.title isEqualToString:self.presetPicker.titleOfSelectedItem] ? NSControlStateValueOn : NSControlStateValueOff;
-    self.statusItem.button.toolTip = self.engine.processing ? @"UltraFine Tune is processing audio" : (running ? @"UltraFine Tune is waiting for audio" : @"UltraFine Tune is off");
+    self.statusItem.button.toolTip = self.engine.processing ? @"UltraFineTune is processing audio" : (running ? @"UltraFineTune is waiting for audio" : @"UltraFineTune is off");
 }
 
 - (void)showWindow:(id)sender {
@@ -489,7 +489,7 @@ static float UFSafeControl(id value, float minimum, float maximum) {
     }
     [self.statusMenu addItem:presets];
     [self.statusMenu addItem:NSMenuItem.separatorItem];
-    NSMenuItem *quit = [[NSMenuItem alloc] initWithTitle:@"Quit UltraFine Tune" action:@selector(quit:) keyEquivalent:@"q"];
+    NSMenuItem *quit = [[NSMenuItem alloc] initWithTitle:@"Quit UltraFineTune" action:@selector(quit:) keyEquivalent:@"q"];
     quit.target = self;
     [self.statusMenu addItem:quit];
     // AppKit owns click handling for both mouse buttons and keyboard activation.

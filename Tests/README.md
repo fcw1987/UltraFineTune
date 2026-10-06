@@ -23,7 +23,7 @@ the extraction fixtures.
 After a native app build, include its off-state checks by passing the executable:
 
 ```sh
-UF_RC_APP_BINARY="$PWD/dist/UltraFine Tune.app/Contents/MacOS/UltraFineTune" \
+UF_RC_APP_BINARY="$PWD/dist/UltraFineTune.app/Contents/MacOS/UltraFineTune" \
     Tests/run_rc_tests.sh
 ```
 

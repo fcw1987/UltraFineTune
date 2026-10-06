@@ -5,7 +5,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleDisplayName</key>
-    <string>UltraFine Tune</string>
+    <string>UltraFineTune</string>
     <key>CFBundleExecutable</key>
     <string>UltraFineTune</string>
     <key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>UltraFine Tune</string>
+    <string>UltraFineTune</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
@@ -31,7 +31,7 @@
     <key>UFReleaseChannel</key>
     <string>Release candidate 2</string>
     <key>NSAudioCaptureUsageDescription</key>
-    <string>UltraFine Tune processes system playback locally in memory to apply your equalizer. It does not record audio, send it over a network, or use the microphone or screen.</string>
+    <string>UltraFineTune processes system playback locally in memory to apply your equalizer. It does not record audio, send it over a network, or use the microphone or screen.</string>
     <key>NSHighResolutionCapable</key>
     <true/>
     <key>NSPrincipalClass</key>
