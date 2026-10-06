@@ -1,6 +1,6 @@
 # Security and distribution
 
-This is a local release candidate with a local ad hoc signature. It has not been notarized or signed using an Apple distribution certificate. Build from source you have reviewed and use the build script’s signature verification as a bundle integrity check; an ad hoc signature does not identify a trusted publisher.
+Version 1.0.0 is a stable release with a local ad hoc signature. It has not been notarized or signed using an Apple distribution certificate. Build from source you have reviewed and use the build script’s signature verification as a bundle integrity check; an ad hoc signature does not identify a trusted publisher.
 
 The native runtime depends on Apple AppKit, Foundation, Core Audio, AudioToolbox, and AudioUnit frameworks plus the in-tree DSP and ring buffer. It has no package-manager runtime dependencies, network update mechanism, or automatic startup. Tuning starts manually. The app does not change hardware volume or the default output device.
 
@@ -12,6 +12,6 @@ Use GitHub [private vulnerability reporting](https://github.com/fcw1987/UltraFin
 
 For a non-sensitive bug, provide the source revision, macOS/toolchain version, output model and connection, sample rate, exact reproduction steps, observed status, and expected result. Review diagnostic files for local paths and identifiers before sharing. No personal contact details are included in this project.
 
-## Release checklist
+## Distribution status
 
-The RC2 prerelease is available with an ad hoc signature and pending live acceptance disclosed. Before declaring a stable release, complete live Mac acceptance and decide on Developer ID signing and notarization. Update validation claims to match the exact released source. Public source availability does not establish live playback acceptance.
+Stable 1.0.0 (build 3) is available for Apple silicon and macOS 14.2+. Developer ID signing and notarization are separate future distribution work; the current release has neither. Automated validation and off-state controls are checked against the released source. Live permission, listening, latency, sustained playback and hardware recovery have the boundaries documented in [known limits](KNOWN_LIMITS.md); stable designation does not imply those measurements have been performed.

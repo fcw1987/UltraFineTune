@@ -1,6 +1,6 @@
 # UltraFineTune, Mac acceptance checklist
 
-This checklist tracks acceptance of 1.0.0 build 1, Release candidate 1. Native build and off-state checks passed; live hardware acceptance is pending. Keep playback volume comfortable while checking route changes and recovery.
+This historical checklist records 1.0.0 build 1, Release candidate 1, and remains a guide for future live hardware validation. Stable 1.0.0 build 3 is released; the historical results below are not new measurements. Native build and off-state checks passed; live hardware acceptance is pending. Keep playback volume comfortable while checking route changes and recovery.
 
 ## Completed RC evidence
 

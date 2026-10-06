@@ -1,6 +1,14 @@
 # Release notes
 
-## 1.0.0 RC2 — build 2
+## 1.0.0 — build 3
+
+- Stable release with the existing system audio EQ, eight presets, saved preset, comparison, and output trim.
+- Stable app metadata and clear product, compatibility, installation, privacy, and support information.
+- Apple silicon (arm64), macOS 14.2+. Ad hoc signed; not Developer ID signed or notarized.
+- New versioned app ZIP and checksum; existing RC2 artifacts and tag are preserved.
+- Bundle identifier, preference keys, DSP, and controls remain unchanged.
+
+## Historical 1.0.0 RC2 — build 2 (superseded by 1.0.0)
 
 - Native menu bar controls, eight listening presets, one saved preset, tone comparison, and Flat EQ.
 - Local stereo processing through Core Audio process taps and a separate output Audio Unit.

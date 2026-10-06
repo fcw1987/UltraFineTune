@@ -19,7 +19,7 @@
     <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>
     <key>CFBundleVersion</key>
-    <string>2</string>
+    <string>3</string>
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.music</string>
     <key>LSMinimumSystemVersion</key>
@@ -29,7 +29,7 @@
     <key>LSUIElement</key>
     <true/>
     <key>UFReleaseChannel</key>
-    <string>Release candidate 2</string>
+    <string>stable</string>
     <key>NSAudioCaptureUsageDescription</key>
     <string>UltraFineTune processes system playback locally in memory to apply your equalizer. It does not record audio, send it over a network, or use the microphone or screen.</string>
     <key>NSHighResolutionCapable</key>

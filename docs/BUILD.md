@@ -1,8 +1,8 @@
 # Build and installation
 
-## Download the prerelease
+## Download 1.0.0
 
-The [RC2 release](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0-rc2) provides a runnable arm64 app ZIP and SHA-256 checksum. Extract the ZIP, read `INSTALL.md`, quit an older copy, and open the app. Moving it to your user’s Applications folder is optional. The download needs macOS 14.2+ on Apple silicon; no developer tools are required to run it.
+The [1.0.0 release](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0) provides a runnable arm64 app ZIP and SHA-256 checksum. Extract the ZIP, read `INSTALL.md`, quit an older copy, and open the app. Moving it to your user’s Applications folder is optional. The download needs macOS 14.2+ on Apple silicon; no developer tools are required to run it.
 
 The app is locally ad hoc signed, not Developer ID signed or notarized. If macOS blocks a downloaded copy, review [Apple’s app-specific instructions](https://support.apple.com/en-us/102445) and continue only if you trust that exact app. Source builds are an alternative. No global security disablement is needed.
 
