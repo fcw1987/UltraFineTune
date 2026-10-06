@@ -11,21 +11,30 @@ SHOULD_INSTALL=0
 SHOULD_RUN=0
 RUN_LOCAL=0
 OUTPUT_DIR=""
+RELEASE_SIGN_IDENTITY=""
+HARDENED_RUNTIME=0
 
 usage() {
     cat <<'USAGE'
 Usage: bash build.sh [--install] [--run] [--run-local] [--output-dir path]
+                     [--hardened-runtime | --release-sign-identity identity]
 
 No options    Build and sign dist/UltraFineTune.app.
 --install     Also install into your Applications folder.
 --run         Also install and open the app.
 --run-local   Open the workspace app without installing.
 --output-dir  Build into a separate folder (useful while an older copy runs).
+--hardened-runtime
+              Enable hardened runtime in an ad hoc local test build.
+--release-sign-identity identity
+              Sign with an existing full Developer ID Application identity;
+              enables hardened runtime and requests a secure timestamp.
 --help        Show these instructions.
 
 Requires macOS 14.2 or later and Xcode or Apple Command Line Tools
 with a macOS SDK that includes Core Audio process taps.
 No administrator access or additional packages are required.
+Default builds are ad hoc signed. Signing does not notarize or publish an app.
 USAGE
 }
 
@@ -55,6 +64,16 @@ while (( $# )); do
         --run) SHOULD_INSTALL=1; SHOULD_RUN=1 ;;
         --run-local) RUN_LOCAL=1 ;;
         --output-dir) (( $# )) || fail "--output-dir requires a path"; OUTPUT_DIR="$1"; shift ;;
+        --hardened-runtime) HARDENED_RUNTIME=1 ;;
+        --release-sign-identity)
+            (( $# )) || fail "--release-sign-identity requires a full Developer ID Application identity"
+            [[ -z "$RELEASE_SIGN_IDENTITY" ]] || fail "--release-sign-identity may be specified only once"
+            RELEASE_SIGN_IDENTITY="$1"
+            shift
+            [[ "$RELEASE_SIGN_IDENTITY" == "Developer ID Application: "?* ]] ||
+                fail "Release identity must start with 'Developer ID Application: ' followed by its full certificate name"
+            HARDENED_RUNTIME=1
+            ;;
         --help|-h) usage; exit 0 ;;
         *) usage >&2; fail "Unknown option: $option" ;;
     esac
@@ -130,7 +149,15 @@ BUILT_APP="$BUILD_TEMP/$APP_NAME.app"
     -o "$BUILT_APP/Contents/MacOS/$EXECUTABLE_NAME"
 /bin/chmod 755 "$BUILT_APP/Contents/MacOS/$EXECUTABLE_NAME"
 /usr/bin/plutil -lint "$BUILT_APP/Contents/Info.plist"
-/usr/bin/codesign --force --sign - --timestamp=none "$BUILT_APP"
+SIGN_FLAGS=(--force --sign - --timestamp=none)
+if [[ -n "$RELEASE_SIGN_IDENTITY" ]]; then
+    SIGN_FLAGS=(--force --sign "$RELEASE_SIGN_IDENTITY" --timestamp)
+    printf 'Signing with the supplied Developer ID Application identity. Notarization is a separate step.\n'
+fi
+if (( HARDENED_RUNTIME )); then
+    SIGN_FLAGS+=(--options runtime)
+fi
+/usr/bin/codesign "${SIGN_FLAGS[@]}" "$BUILT_APP"
 /usr/bin/codesign --verify --strict "$BUILT_APP"
 
 # Publishing uses an atomic filesystem rename. Existing recognized copies are

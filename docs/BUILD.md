@@ -42,7 +42,9 @@ The script builds for the current Mac’s architecture. The recorded native RC e
 
 Quit a running copy before replacing it. The installer checks the existing bundle identifier, verifies a staged replacement, and uses an atomic filesystem replacement for a recognized app. A conflicting app at the same destination is left unchanged. Installation does not need administrator access.
 
-Builds receive an ad hoc local signature and strict signature verification. This is not Developer ID signing or notarization. macOS can ask for capture permission again after rebuilding; keeping a stable installed path helps avoid unnecessary identity changes but does not guarantee permission persistence. Do not treat successful signature verification as proof of a trusted publisher.
+Default builds receive an ad hoc local signature and strict signature verification. This is not Developer ID signing or notarization. `--hardened-runtime` adds hardened runtime for local compatibility testing. `--release-sign-identity` uses an existing Developer ID Application identity, enables hardened runtime, and requests a secure timestamp. Signing does not notarize or publish the app; see the [release signing checklist](RELEASE_SIGNING.md).
+
+macOS can ask for capture permission again after rebuilding; keeping a stable installed path helps avoid unnecessary identity changes but does not guarantee permission persistence. Do not treat successful signature verification as proof of a trusted publisher.
 
 ## Remove
 
