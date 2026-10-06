@@ -4,7 +4,13 @@
 
 The [1.0.0 release](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0) provides a runnable arm64 app ZIP and SHA-256 checksum. Extract the ZIP, read `INSTALL.md`, quit an older copy, and open the app. Moving it to your user’s Applications folder is optional. The download needs macOS 14.2+ on Apple silicon; no developer tools are required to run it.
 
-The app is locally ad hoc signed, not Developer ID signed or notarized. If macOS blocks a downloaded copy, review [Apple’s app-specific instructions](https://support.apple.com/en-us/102445) and continue only if you trust that exact app. Source builds are an alternative. No global security disablement is needed.
+The app is locally ad hoc signed, not Developer ID signed or notarized. macOS may block the first launch of a downloaded copy, and right-click → Open alone may not be sufficient. If you trust that exact download:
+
+1. Try opening `UltraFineTune.app` once.
+2. Open **System Settings → Privacy & Security** and scroll down to **Security**.
+3. Choose the app-specific **Open Anyway** control (the label may appear as **Allow**), then confirm **Open** in the next prompt.
+
+See [Apple’s app-specific instructions](https://support.apple.com/en-us/102445). This launch approval is separate from system audio capture permission. Source builds are an alternative. No global security disablement is needed.
 
 ## Source build requirements
 

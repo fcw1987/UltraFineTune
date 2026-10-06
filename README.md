@@ -12,7 +12,7 @@ Adjust bass, mids, treble, and output trim without a driver or third-party runti
 
 Download the [1.0.0 app ZIP for Apple silicon (arm64)](https://github.com/fcw1987/UltraFineTune/releases/download/v1.0.0/UltraFineTune-1.0.0-macos-arm64.zip) from [GitHub Releases](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0). Requires **macOS 14.2+**. The ZIP includes the app, MIT license, and installation guide; a SHA-256 checksum is available with the release.
 
-Extract the ZIP, quit any older copy, and open `UltraFineTune.app`. You can move it to your user’s Applications folder. This release is **ad hoc signed, not Developer ID signed or notarized**. If macOS blocks it, review [Apple’s app-specific opening guidance](https://support.apple.com/en-us/102445) and proceed only if you trust this build. Building from source is also available.
+Extract the ZIP, quit any older copy, and open `UltraFineTune.app`. You can move it to your user’s Applications folder. This release is **ad hoc signed, not Developer ID signed or notarized**. If macOS blocks it and you trust this exact download, open **System Settings → Privacy & Security**, scroll down to **Security**, and choose the app-specific **Open Anyway** control (the label may appear as **Allow**). Confirm **Open** in the next prompt. Right-click → Open alone may not be sufficient. See [Apple’s app-specific opening guidance](https://support.apple.com/en-us/102445). Building from source is also available.
 
 ## Build from source
 
