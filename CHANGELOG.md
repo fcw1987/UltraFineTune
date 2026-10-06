@@ -1,5 +1,12 @@
 # Release notes
 
+## 1.0.1 — build 4 (candidate; not published)
+
+- Explicit Developer ID signing with hardened runtime and a secure timestamp using an existing authorized identity.
+- Shared Xcode Release archive scheme for the existing native app and Organizer distribution workflow.
+- Version metadata updated consistently; bundle identifier, preference keys, DSP, and controls remain unchanged.
+- Notarization, ticket stapling, Gatekeeper acceptance, and public release remain pending.
+
 ## 1.0.0 — build 3
 
 - Stable release with the existing system audio EQ, eight presets, saved preset, comparison, and output trim.

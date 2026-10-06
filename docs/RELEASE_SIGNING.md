@@ -1,6 +1,6 @@
 # Release signing preparation
 
-The public 1.0.0 release is ad hoc signed and not notarized. These build options prepare a future release; they do not change that status. This preparation retains the current version metadata. Before producing a new release candidate, update both `Info.plist` and the CLI report in `Sources/main.m` consistently (proposed candidate: 1.0.1, build 4), and update release notes. A candidate must not be described as released or notarized until its checks pass.
+The public 1.0.0 release is ad hoc signed and not notarized. These build options prepare a future release; they do not change that status. The prepared candidate is 1.0.1, build 4, with consistent `Info.plist`, visible version, CLI report, and release notes. A candidate must not be described as released or notarized until its checks pass.
 
 ## Local compatibility check
 
@@ -26,6 +26,22 @@ codesign --display --verbose=4 /tmp/UltraFineTune-release-candidate/UltraFineTun
 Record the expected Developer ID Application authority, TeamIdentifier, secure `Timestamp`, and `runtime` flag. An unavailable identity, locked or inaccessible key, or timestamp-server failure must fail the build; the script does not fall back to ad hoc signing. Default source builds remain ad hoc signed. No entitlements are added by these options.
 
 Before distribution, test the exact signed candidate under the [Mac acceptance checklist](../MAC_TEST_CHECKLIST.md), including capture permission and supported hardware playback. Capture testing requires separate operator approval. The existing `NSAudioCaptureUsageDescription`, bundle identifier `local.ultrafinetune.app`, and preference keys remain unchanged. Whether live process taps need an additional hardened-runtime audio entitlement in this app is unresolved; do not add microphone/audio-input entitlements or claim capture compatibility based on the off-state check.
+
+## Archive with Xcode
+
+The shared `UltraFineTune` scheme builds the existing native sources as a macOS application. Release uses manual Developer ID signing, hardened runtime, a secure timestamp, arm64, and macOS 14.2. It does not add sandbox or microphone entitlements. Use an existing authorized team and identity; override the project team for your own account:
+
+```sh
+xcodebuild -project UltraFineTune.xcodeproj -scheme UltraFineTune \
+  -configuration Release -destination 'generic/platform=macOS' \
+  -derivedDataPath /tmp/UltraFineTune-derived \
+  -archivePath /tmp/UltraFineTune.xcarchive \
+  -disableAutomaticPackageResolution archive \
+  DEVELOPMENT_TEAM=EXISTING_TEAM_ID \
+  CODE_SIGN_IDENTITY='Developer ID Application: FULL EXISTING NAME (TEAMID)'
+```
+
+Open the genuine archive in Xcode Organizer. With an existing signed-in Apple Developer account, **Distribute App → Direct Distribution** provides the notarization workflow. Proceed with an Apple upload only when explicitly authorized. No new notarytool profile is needed for this Organizer route. Archive creation and Developer ID signing alone do not establish notarization or release acceptance.
 
 ## Notarize and verify before publication
 
