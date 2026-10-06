@@ -14,4 +14,4 @@ For a non-sensitive bug, provide the source revision, macOS/toolchain version, o
 
 ## Release checklist
 
-Before distributing prebuilt releases, complete live Mac acceptance and decide on Developer ID signing and notarization. Update validation claims to match the exact released source. Public source availability does not establish live playback acceptance.
+The RC2 prerelease is available with an ad hoc signature and pending live acceptance disclosed. Before declaring a stable release, complete live Mac acceptance and decide on Developer ID signing and notarization. Update validation claims to match the exact released source. Public source availability does not establish live playback acceptance.

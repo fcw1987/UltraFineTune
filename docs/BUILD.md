@@ -1,6 +1,12 @@
 # Build and installation
 
-## Requirements
+## Download the prerelease
+
+The [RC2 release](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0-rc2) provides a runnable arm64 app ZIP and SHA-256 checksum. Extract the ZIP, read `INSTALL.md`, quit an older copy, and open the app. Moving it to your user’s Applications folder is optional. The download needs macOS 14.2+ on Apple silicon; no developer tools are required to run it.
+
+The app is locally ad hoc signed, not Developer ID signed or notarized. If macOS blocks a downloaded copy, review [Apple’s app-specific instructions](https://support.apple.com/en-us/102445) and continue only if you trust that exact app. Source builds are an alternative. No global security disablement is needed.
+
+## Source build requirements
 
 - macOS 14.2 or later.
 - Xcode or Apple Command Line Tools with a macOS SDK that includes Core Audio process taps.
@@ -47,4 +53,4 @@ See [the test guide](../Tests/README.md) for sanitizer requirements, result dire
 
 ## Informational website
 
-Open `docs/index.html` directly in a browser, or serve the repository using a local static server. No build step, JavaScript, CDN, or external font is needed. CSS and the SVG icon live in `docs/assets/`. GitHub Pages can serve the `docs` directory from a published branch. The site uses local assets and links to this project on GitHub. GitHub Actions deploys it after successful validation on main. The Markdown guides are also available as source files alongside the site.
+Open `docs/index.html` directly in a browser, or serve the repository using a local static server. No build step, JavaScript, CDN, or external font is needed. CSS and the SVG icon live in `docs/assets/`. GitHub Pages can serve the `docs` directory from a published branch. The site uses local assets and links to this project on GitHub. GitHub Pages publishes the main branch’s /docs folder, matching the repository’s saved Pages setting. Native build/fixture CI validates pull requests before review and merge. The Markdown guides are also available as source files alongside the site.

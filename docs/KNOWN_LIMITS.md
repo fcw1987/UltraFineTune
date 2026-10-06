@@ -9,7 +9,7 @@
 - Sample clamping bounds output but cannot guarantee distortion-free processing for every input.
 - Route changes and sleep stop tuning; confirm the route and restart manually.
 - One custom preset is stored. No preset library, sync, automatic updater, or automatic tuning startup.
-- Source builds are ad hoc signed, not Developer ID signed or notarized. No prebuilt public release is available.
+- Source builds are ad hoc signed, not Developer ID signed or notarized. The RC2 prerelease ZIP supports Apple silicon (arm64) only; no Intel or universal binary is supplied.
 
 ## Verified and pending
 
