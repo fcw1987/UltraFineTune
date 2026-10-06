@@ -8,4 +8,4 @@
 - Open-source publication standardizes UltraFineTune branding, adds the MIT license, support/privacy pages, and build/Pages automation.
 - Bundle identifier and preference keys remain stable through the naming change.
 
-This is a source release candidate. Local builds are ad hoc signed, not notarized. Live audio and recovery acceptance remain pending.
+The downloadable RC2 prerelease includes an arm64 app, MIT license, installation guide, and ZIP checksum. It is ad hoc signed, not Developer ID signed or notarized. Live audio and recovery acceptance remain pending.

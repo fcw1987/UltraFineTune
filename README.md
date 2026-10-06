@@ -2,13 +2,19 @@
 
 **Your sound. A little more you.** A free, open-source native macOS menu bar equalizer for system playback, built with LG UltraFine speakers as its first target.
 
-[Website](https://fcw1987.github.io/UltraFineTune/) · [Get started](docs/BUILD.md) · [Support](https://github.com/fcw1987/UltraFineTune/issues) · [Privacy](docs/PRIVACY.md) · [MIT license](LICENSE)
+[Download RC2](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0-rc2) · [Website](https://fcw1987.github.io/UltraFineTune/) · [Get started](docs/BUILD.md) · [Support](https://github.com/fcw1987/UltraFineTune/issues) · [Privacy](docs/PRIVACY.md) · [MIT license](LICENSE)
 
 ![UltraFineTune native controls, with tuning off](docs/assets/app-window.png)
 
 Adjust bass, mids, treble, and output trim without a driver or third-party runtime. Choose a gentle listening preset, save your own, and compare the original tone from the menu bar. There are no subscriptions, paid tiers, accounts, or activation keys.
 
-## Build and try it
+## Download and try it
+
+Download the [RC2 app ZIP for Apple silicon (arm64)](https://github.com/fcw1987/UltraFineTune/releases/download/v1.0.0-rc2/UltraFineTune-1.0.0-rc2-macos-arm64.zip) from [GitHub Releases](https://github.com/fcw1987/UltraFineTune/releases/tag/v1.0.0-rc2). Requires **macOS 14.2+**. The ZIP includes the app, MIT license, and installation guide; a SHA-256 checksum is available with the release.
+
+Extract the ZIP, quit any older copy, and open `UltraFineTune.app`. You can move it to your user’s Applications folder. This prerelease is **ad hoc signed, not Developer ID signed or notarized**. If macOS blocks it, review [Apple’s app-specific opening guidance](https://support.apple.com/en-us/102445) and proceed only if you trust this build. Building from source is also available.
+
+## Build from source
 
 Requires **macOS 14.2+** and Xcode or Apple Command Line Tools with an SDK supporting Core Audio process taps. The build uses Apple frameworks and in-tree C/Objective-C source.
 
@@ -45,7 +51,7 @@ Presets are subjective starting points, not measured calibration, hardware corre
 
 Version **1.0.0, build 2 (RC2)**. Native arm64 compilation, strict ad hoc signature verification, DSP/ring/preset fixtures, and isolated off-state menu/window checks have passed locally. GitHub Actions builds and runs focused fixtures on macOS. These checks do not establish live listening quality, device latency, permission acceptance, sustained playback, or recovery; those remain in the [Mac acceptance checklist](MAC_TEST_CHECKLIST.md).
 
-Builds are locally ad hoc signed, **not Developer ID signed or notarized**. There is no prebuilt public release yet. Source builds target the current Mac architecture; local native evidence is arm64. Stereo capture and output require matching nominal sample rates. Protected content or directly routed audio may not be captured. See [known limits](docs/KNOWN_LIMITS.md).
+Builds are locally ad hoc signed, **not Developer ID signed or notarized**. The downloadable RC2 prerelease is arm64; no Intel or universal binary is supplied. Source builds target the current Mac architecture; local native evidence is arm64. Stereo capture and output require matching nominal sample rates. Protected content or directly routed audio may not be captured. See [known limits](docs/KNOWN_LIMITS.md).
 
 ## Local by design
 
