@@ -1,0 +1,23 @@
+name: Validate
+on:
+  push:
+    branches: [main, 'publish/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Native build and focused fixtures
+        run: |
+          bash build.sh
+          Tests/run_tests.sh
+          python3 Tests/check_callbacks.py
+          python3 Tests/check_lifecycle.py
+          dist/UltraFineTune.app/Contents/MacOS/UltraFineTune --self-test
+      - name: Validate site and public source
+        run: python3 Tests/check_publication.py

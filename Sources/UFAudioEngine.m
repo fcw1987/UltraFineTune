@@ -591,7 +591,7 @@ static OSStatus UFOutputRender(void *userData, AudioUnitRenderActionFlags *flags
     if (self.running) [self stop];
     self.lastError = nil;
     if (_cleanupFailed) {
-        NSError *failure = UFError(UFErrorCleanup, @"Quit and reopen UltraFine Tune before starting a new session. Core Audio could not fully release the previous session.", noErr);
+        NSError *failure = UFError(UFErrorCleanup, @"Quit and reopen UltraFineTune before starting a new session. Core Audio could not fully release the previous session.", noErr);
         self.lastError = failure;
         if (error) *error = failure;
         return NO;
@@ -664,7 +664,7 @@ static OSStatus UFOutputRender(void *userData, AudioUnitRenderActionFlags *flags
                                                              andDeviceUID:uid withStream:0];
         if (!_tapDescription)
             return [self failStart:UFError(UFErrorCoreAudio, @"Core Audio could not describe the audio tap.", noErr) error:error];
-        [_tapDescription setName:@"UltraFine Tune audio"];
+        [_tapDescription setName:@"UltraFineTune audio"];
         [_tapDescription setPrivate:YES];
         [_tapDescription setMuteBehavior:CATapUnmuted];
         status = AudioHardwareCreateProcessTap(_tapDescription, &_tapID);
@@ -678,7 +678,7 @@ static OSStatus UFOutputRender(void *userData, AudioUnitRenderActionFlags *flags
             fabs(_tapFormat.mSampleRate - self.sampleRate) >= 0.01)
             return [self failStart:UFError(UFErrorStream, @"The audio tap returned an unsupported or mismatched format.", status) error:error];
         NSDictionary *composition = @{
-            @kAudioAggregateDeviceNameKey: @"UltraFine Tune private audio",
+            @kAudioAggregateDeviceNameKey: @"UltraFineTune private audio",
             @kAudioAggregateDeviceUIDKey: [@"local.UltraFineTune." stringByAppendingString:[NSUUID UUID].UUIDString],
             @kAudioAggregateDeviceIsPrivateKey: @YES,
             @kAudioAggregateDeviceTapListKey: @[@{@kAudioSubTapUIDKey: tapUID,
@@ -723,7 +723,7 @@ static OSStatus UFOutputRender(void *userData, AudioUnitRenderActionFlags *flags
             return [self failStart:UFError(UFErrorCoreAudio, @"Core Audio could not prepare audio capture.", status) error:error];
         status = AudioDeviceStart(_aggregateID, _ioProcID);
         if (status != noErr)
-            return [self failStart:UFError(UFErrorCoreAudio, @"Audio capture could not start. Allow System Audio Recording for UltraFine Tune in Privacy & Security, then reopen the app and try again.", status) error:error];
+            return [self failStart:UFError(UFErrorCoreAudio, @"Audio capture could not start. Allow System Audio Recording for UltraFineTune in Privacy & Security, then reopen the app and try again.", status) error:error];
         self.running = YES;
         self.processing = NO;
         self.statusText = @"Waiting for audio. Play something and allow System Audio Recording if prompted.";
@@ -746,7 +746,7 @@ static OSStatus UFOutputRender(void *userData, AudioUnitRenderActionFlags *flags
         [[NSRunLoop mainRunLoop] addTimer:_watchdog forMode:NSRunLoopCommonModes];
         return YES;
     }
-    return [self failStart:UFError(UFErrorUnsupported, @"UltraFine Tune requires macOS 14.2 or later.", noErr) error:error];
+    return [self failStart:UFError(UFErrorUnsupported, @"UltraFineTune requires macOS 14.2 or later.", noErr) error:error];
 }
 
 - (BOOL)failStart:(NSError *)failure error:(NSError **)error {
@@ -900,7 +900,7 @@ static OSStatus UFOutputRender(void *userData, AudioUnitRenderActionFlags *flags
        process exit. Freeing it would create a use after free on the audio thread. */
     _cleanupFailed = _aggregateID != kAudioObjectUnknown || _tapID != kAudioObjectUnknown || !callbackDetached || !outputDetached;
     if (_cleanupFailed) {
-        failure = UFError(UFErrorCleanup, @"Core Audio could not completely close this session. Quit UltraFine Tune to release its private audio resources before trying again.", firstCleanupError);
+        failure = UFError(UFErrorCleanup, @"Core Audio could not completely close this session. Quit UltraFineTune to release its private audio resources before trying again.", firstCleanupError);
     } else {
         _tapDescription = nil;
         _deviceUID = nil;

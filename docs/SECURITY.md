@@ -8,10 +8,10 @@ The engine bounds its stereo buffer and validates supported layouts. Tone boosts
 
 ## Reporting a problem
 
-A dedicated private security reporting channel has not been configured. Once the repository is published, maintainers should configure GitHub private vulnerability reporting before inviting sensitive reports. Do not publish audio, personal device identifiers, credentials, or exploit details in a public issue.
+Use GitHub [private vulnerability reporting](https://github.com/fcw1987/UltraFineTune/security/advisories/new) for sensitive security reports. Do not publish audio, personal device identifiers, credentials, or exploit details in a public issue.
 
 For a non-sensitive bug, provide the source revision, macOS/toolchain version, output model and connection, sample rate, exact reproduction steps, observed status, and expected result. Review diagnostic files for local paths and identifiers before sharing. No personal contact details are included in this project.
 
 ## Release checklist
 
-Before broader distribution, choose a project license, finalize a repository reporting channel, complete the live Mac acceptance checklist, and decide on Developer ID signing and notarization. Update validation claims to match the exact released source and environment. No completed public release or distribution assurance is implied by this checklist.
+Before distributing prebuilt releases, complete live Mac acceptance and decide on Developer ID signing and notarization. Update validation claims to match the exact released source. Public source availability does not establish live playback acceptance.
